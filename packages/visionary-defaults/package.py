@@ -75,6 +75,8 @@ class VisionaryDefaults(Package):
     depends_on('tensorflow')
     depends_on('log4cxx')
     # depends_on('libpsf')
+    depends_on('googletest')
+    depends_on('gflags')
 
     depends_on('py-bokeh')
     depends_on('py-pyqt')
