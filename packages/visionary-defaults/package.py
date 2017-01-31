@@ -42,6 +42,8 @@ class VisionaryDefaults(Package):
     # some random tarball, to make `spack fetch --dependencies visionary-defaults` work
     url = 'https://github.com/electronicvisions/spack-visions/archive/master.tar.gz'
     version('0.1', git='https://github.com/electronicvisions/spack-visions.git')
+    # ECM: added on 2017-01-31
+    version('0.2', git='https://github.com/electronicvisions/spack-visions.git')
 
 
     # This does not work, spack will try to reinstall gcc :(((((
@@ -56,6 +58,8 @@ class VisionaryDefaults(Package):
     depends_on('ncdu')
     depends_on('units')
     depends_on('ranger')
+
+    depends_on('mosh', when='@0.2:')
 
     depends_on('mercurial')
     depends_on('git')
@@ -79,17 +83,17 @@ class VisionaryDefaults(Package):
     depends_on('gflags')
 
     depends_on('py-bokeh')
-    depends_on('py-pyqt')
     # depends_on('py-pygtk')
     depends_on('py-pyside')
 
-    # depends_on('nest@2.2.2+python')
+    depends_on('nest@2.2.2+python', when='@0.2:')
     depends_on('py-brian')
     depends_on('py-brian2')
     depends_on('py-elephant')
     #depends_on('py-spykeviewer')
     depends_on('py-pynn @0.7.5')
 
+    # depends_on('python+tk @2.7:2.7.999')
     depends_on('python @2.7:2.7.999')
     depends_on('py-cython')
     depends_on('py-pip')
@@ -99,7 +103,8 @@ class VisionaryDefaults(Package):
     # depends_on('py-jupyter')
     # depends_on('py-notebook')
 
-    depends_on('py-matplotlib+tk+ipython')
+    depends_on('py-matplotlib~tk+qt+ipython')
+    # depends_on('py-matplotlib+tk+ipython')
     depends_on('py-numpy')
     depends_on('py-pandas @0.19.0:')
     depends_on('py-pytables @3.3.0:')
@@ -116,14 +121,17 @@ class VisionaryDefaults(Package):
     # depends_on('py-pylint')
 
     depends_on('py-sphinx')
-    depends_on('py-doxypypy')
+    depends_on('py-doxypy')
     depends_on('py-nose')
     depends_on('py-junit-xml')
+    depends_on('py-xmlrunner')
 
     # depends_on('py-appdirs')
     # depends_on('py-current')
     # depends_on('py-funcsigs')
     # depends_on('py-lazy')
+    depends_on('py-attrs')
+    depends_on('py-setuptools')
 
     depends_on('py-tabulate')
     depends_on('py-html')
