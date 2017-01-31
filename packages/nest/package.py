@@ -65,6 +65,7 @@ class Nest(Package):
     depends_on("readline")
 
     extends("python", when="+python")
+    depends_on("py-setuptools", when="+python", type="build")
 
     @when('@3:')
     def install(self, spec, prefix):
