@@ -44,6 +44,8 @@ class VisionaryDefaults(Package):
     version('0.1', git='https://github.com/electronicvisions/spack-visions.git')
     # ECM: added on 2017-01-31
     version('0.2', git='https://github.com/electronicvisions/spack-visions.git')
+    # ECM: 2017-02-01 (cereal added)
+    version('0.2.1', git='https://github.com/electronicvisions/spack-visions.git')
 
 
     # This does not work, spack will try to reinstall gcc :(((((
@@ -81,6 +83,8 @@ class VisionaryDefaults(Package):
     # depends_on('libpsf')
     depends_on('googletest')
     depends_on('gflags')
+
+    depends_on('cereal', when='@0.2.1:')
 
     depends_on('py-bokeh')
     # depends_on('py-pygtk')
